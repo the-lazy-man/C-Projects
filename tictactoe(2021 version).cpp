@@ -10,35 +10,42 @@ void instruction(){
 	cout<<" | (3,1) | (3,2) |(3,3) |"<<endl;
 	return ;
 }
-bool WinnerCheck(char arr[3][3]){
-	int i=0,j=0;
-    if((arr[0][2]==arr[1][1]) && (arr[1][1]==arr[2][0])){
-		cout<<"the winner is " ;
-		(arr[0][2]=='x'?cout<<"player_1":cout<<"player__2");
-		return true;
-	}
-	else if((arr[0][0]==arr[1][1]) && (arr[1][1]==arr[2][2])){
-		cout<<"the winner is " ;
-		(arr[0][0]=='x'?cout<<"player_1":cout<<"player__2");
-		return true;
-	}
-	else{
-    	for(j=0;j<3;j++){
-           	if(arr[0][j]==arr[1][j]&&arr[1][j]==arr[2][j]){
-           		cout<<"the winner iss " ;
-    			(arr[0][j]=='x'?cout<<"player_1":cout<<"player__2");
-    			    return true;
-    		}
-    		else if(arr[j][0]==arr[j][1]&&arr[j][1]==arr[j][2]){
-    			cout<<"the winner is " ;
-    			(arr[j][0]=='x'?cout<<"player_1":cout<<"player_2");
-    		        return true;
-    		}
-    	}	
-	}
-	return false;
-}
+bool WinnerCheck(char arr[3][3]) 
+ {
+    // Check rows
+    for (int i = 0; i < 3; i++) {
+        if (arr[i][0] == arr[i][1] && arr[i][1] == arr[i][2] && arr[i][0] != ' ') {
+            cout << "The winner is " << (arr[i][0] == 'x' ? "player_1" : "player_2") << endl;
+            // cout<<"logic 1"<<endl;
+            return true;
+        }
+    }
 
+    // Check columns
+    for (int i = 0; i < 3; i++) {
+        if (arr[0][i] == arr[1][i] && arr[1][i] == arr[2][i] && arr[0][i] != ' ') {
+            cout << "The winner is " << (arr[0][i] == 'x' ? "player_1" : "player_2") << endl;
+            // cout<<"logic 2"<<endl;
+            // cout<<"i = "<<i + 1<<endl;
+            // cout<<"winner columns are 1 "<<i + 1<<" 2 "<<i + 1<<" 3 "<<i + 1<<endl;
+            return true;
+        }
+    }
+
+    // Check diagonals
+    if (arr[0][0] == arr[1][1] && arr[1][1] == arr[2][2] && arr[0][0] != ' ') {
+        cout << "The winner is " << (arr[0][0] == 'x' ? "player_1" : "player_2") << endl;
+        // cout<<"logic 3"<<endl;
+        return true;
+    }
+    if (arr[0][2] == arr[1][1] && arr[1][1] == arr[2][0] && arr[0][2] != ' ') {
+        cout << "The winner is " << (arr[0][2] == 'x' ? "player_1" : "player_2")<< endl;
+        // cout<<"logic 4"<<endl;
+        return true;
+    }
+
+    return false;
+}
 queue <int> are;
 queue <int> cee;
 queue <int> ARE_o;
@@ -228,6 +235,11 @@ bool ContinueToPlay = true;
 while(ContinueToPlay){
     bool position[3][3] = {false};
     char tictac[3][3];
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            tictac[i][j] = ' ';
+        }
+    }
     while(counter < 9) {
         cout<<"Number of filled positions - "<<counter<<endl;
         int R,C;

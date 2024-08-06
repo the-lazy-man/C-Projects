@@ -1,6 +1,7 @@
-#include <iostream>
-#include <string>
-#include <queue>
+// #include <iostream>
+// #include <string>
+// #include <queue>
+#include<bits/stdc++.h>
 using namespace std ;
 
 void instruction(){
@@ -9,31 +10,35 @@ void instruction(){
 	cout<<" | (3,1) | (3,2) |(3,3) |"<<endl;
 	return ;
 }
-void winnercheck(char arr[3][3]){
+bool WinnerCheck(char arr[3][3]){
 	int i=0,j=0;
-		if(arr[i][j]==arr[i+1][j+1]&&arr[i+1][j+1]==arr[i+2][j+2]){
-			cout<<"the winner is " ;
-			(arr[i][j]=='x'?cout<<"player_1":cout<<"player__2");
-			exit(0) ;
-		}
-		if(arr[0][2]==arr[1][1]&&arr[1][1]==arr[2][0]){
-			cout<<"the winner is " ;
-			(arr[0][2]=='x'?cout<<"player_1":cout<<"player__2");
-			exit(0) ;
-		}
-		for(j=0;j<3;j++){
-           	if(arr[0][j]==arr[1][j]&&arr[1][j]==arr[2][j]){
-           		cout<<"the winner is " ;
-				(arr[0][j]=='x'||arr[0][j]=='x'||arr[0][j]=='x'?cout<<"player_1":cout<<"player__2");
-				exit(0) ;
-			}
-			if(arr[j][0]==arr[j][1]&&arr[j][1]==arr[j][2]){
-				cout<<"the winner is " ;
-				(arr[j][0]=='x'||arr[j][0]=='x'||arr[j][0]=='x'?cout<<"player_1":cout<<"player_2");
-				exit(0) ;
-			}
-		}	
+    if((arr[0][2]==arr[1][1]) && (arr[1][1]==arr[2][0])){
+		cout<<"the winner is " ;
+		(arr[0][2]=='x'?cout<<"player_1":cout<<"player__2");
+		return true;
 	}
+	else if((arr[0][0]==arr[1][1]) && (arr[1][1]==arr[2][2])){
+		cout<<"the winner is " ;
+		(arr[0][0]=='x'?cout<<"player_1":cout<<"player__2");
+		return true;
+	}
+	else{
+    	for(j=0;j<3;j++){
+           	if(arr[0][j]==arr[1][j]&&arr[1][j]==arr[2][j]){
+           		cout<<"the winner iss " ;
+    			(arr[0][j]=='x'?cout<<"player_1":cout<<"player__2");
+    			    return true;
+    		}
+    		else if(arr[j][0]==arr[j][1]&&arr[j][1]==arr[j][2]){
+    			cout<<"the winner is " ;
+    			(arr[j][0]=='x'?cout<<"player_1":cout<<"player_2");
+    		        return true;
+    		}
+    	}	
+	}
+	return false;
+}
+
 queue <int> are;
 queue <int> cee;
 queue <int> ARE_o;
@@ -43,6 +48,7 @@ queue <int> CEE_x;
 string arr_o[3][3] ;
 string arr_x[3][3] ;
 string arr[3][3] ;
+
 void box(int r,int c,char p){
     int i,j;
     // construction of table arr
@@ -79,7 +85,7 @@ void box(int r,int c,char p){
     }
     
     
-    if(p=='o'){
+    if(p =='o'){
         ARE_o.push(r) ;
         CEE_o.push(c) ;
         
@@ -103,7 +109,7 @@ void box(int r,int c,char p){
 		}
 		
     }	
-    if(p=='x') {
+    if(p =='x') {
     
         ARE_x.push(r) ;
         CEE_x.push(c) ;
@@ -185,9 +191,14 @@ void box(int r,int c,char p){
     }
     cout<<"\n";
 }
+void clear( std::queue<int> &q )
+{
+   std::queue<int> empty;
+   std::swap( q, empty );
+}
+
 int main(){
 static char player_1='x',player_2='o';
-char tictac[3][3];
 cout<<"Instruction to play the game."<<endl;
 cout<<"\n" ;
 cout<<"NOTE :: player_1's avatar is 'x' and palyer_2's avatar is 'o'."<<endl;
@@ -213,52 +224,70 @@ CEE_o.pop();
 cout<<"\nLet's play TicTacToe."<<endl;
 cout<<"\n";
 int counter = 0;
-bool position[3][3] = {false};
-while(counter < 9) {
-    cout<<"Number of filled positions - "<<counter<<endl;
-    int R,C;
-	int r,c;
-	if(counter%2==0) {
-		cout<<"Player 1's turn.."<<endl;
-		cout<<"Input :: " ;
-		cin>>R>>C ;
-		r = R-1;
-		c = C-1;
-		while(r>2||c>2 || position[r][c]){
-			cout<<"enter a valid position"<<endl;
-			cout<<"Input :: " ;
-			cin>>R>>C ;
-		    r = R-1;
-		    c = C-1;
-		}
-		position[r][c] = true;
-		counter++;
-		tictac[r][c]=player_1;
-		box(r,c,player_1);
-	}
-	else{
-		cout<<"Player 2's turn.."<<endl;
-		cout<<"Input :: " ;
-		cin>>R>>C ;
-		r = R-1;
-		c = C-1;
-		while((r>2||c>2) || position[r][c]){
-			cout<<"enter a valid position"<<endl;
-			cout<<"Input :: ";
-			cin>>R>>C ;
-		    r = R-1;
-	    	c = C-1;
-		}
-		position[r][c] = true;
-		counter++;
-		tictac[r][c] = player_2;
-		box(r,c,player_2) ;
-	}
-	if(counter>=4){
-		winnercheck(tictac);
-	}
+bool ContinueToPlay = true;
+while(ContinueToPlay){
+    bool position[3][3] = {false};
+    char tictac[3][3];
+    while(counter < 9) {
+        cout<<"Number of filled positions - "<<counter<<endl;
+        int R,C;
+    	int r,c;
+    	if(counter%2==0) {
+    		cout<<"\nPlayer 1's turn.."<<endl;
+    		cout<<"Input :: " ;
+    		cin>>R>>C ;
+    		r = R-1;
+    		c = C-1;
+    		while((r > 2 || r < 0) || (c > 2  || c < 0)  || position[r][c]){
+    			cout<<"\nenter a valid position"<<endl;
+    			cout<<"Input :: " ;
+    			cin>>R>>C ;
+    		    r = R-1;
+    		    c = C-1;
+    		}
+    		position[r][c] = true;
+    		counter++;
+    		tictac[r][c]=player_1;
+    		box(r,c,player_1);
+    	}
+    	else{
+    		cout<<"\nPlayer 2's turn.."<<endl;
+    		cout<<"Input :: " ;
+    		cin>>R>>C ;
+    		r = R-1;
+    		c = C-1;
+    		while((r > 2 || r < 0) || (c > 2  || c < 0)  || position[r][c]){
+    			cout<<"enter a valid position"<<endl;
+    			cout<<"Input :: ";
+    			cin>>R>>C ;
+    		    r = R-1;
+    	    	c = C-1;
+    		}
+    		position[r][c] = true;
+    		counter++;
+    		tictac[r][c] = player_2;
+    		box(r,c,player_2) ;
+    	}
+    	if(counter >= 5){
+    		if(WinnerCheck(tictac))
+    		    break;
+    	}
+    }
+    if(counter == 9)
+        cout<<"The match ia a draw ." ;
+        
+    cout<<"\nTo continue press 1 otherwise press 0 to exit"<<endl;
+    cin>>ContinueToPlay;
+    if(ContinueToPlay){
+        counter = 0;
+        clear(ARE_o);
+        clear(ARE_x);
+        clear(CEE_o);
+        clear(CEE_x);
+        clear(are);
+        clear(cee);
+    }
 }
-cout<<"The match ia a draw ." ;
 
 	return 0 ;
 }

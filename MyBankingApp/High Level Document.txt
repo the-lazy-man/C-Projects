@@ -1,0 +1,28 @@
+High-Level Document (HLD):
+
+Project Overview:
+
+ >Title: Banking Application
+ >Purpose: Create a console-based banking application that allows users to perform various banking actions.
+ >Objectives: Enable users to open accounts, deposit and withdraw funds, check account balance, and exit the application.
+
+Key Features:
+
+ 1.Open Account: Allow users to open a new bank account.
+ 2.Deposit Cash: Enable users to deposit money into their account.
+ 3.Withdraw Cash: Allow users to withdraw money from their account.
+ 4.Check Balance: Show users their current account balance.
+ 5.Exit: Provide an option for users to exit the application.
+
+User Flow:
+
+ 1.User launches the application.
+ 2.User selects from the menu options.
+ 3.Application performs the chosen action and returns results.
+ 4.User can perform more actions or exit the application.
+
+Technology Stack:
+
+ >Java programming language
+ >Scanner class for input
+ >Object-oriented design principles

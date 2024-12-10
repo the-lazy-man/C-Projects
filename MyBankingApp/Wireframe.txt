@@ -1,0 +1,10 @@
+_________________________
+* Welcome to SBI Branch Bansoor 301402 *
+_________________________
+1. Open Account
+2. Deposit Cash
+3. Withdraw Cash
+4. Check Balance
+5. Exit
+_________________________
+Enter your choice:

@@ -1,0 +1,27 @@
+Low-Level Document (LLD):
+
+Component Overview:
+
+>AccountHolder: Manages account-related actions.
+>BankApplication: Handles user interaction and menu display.
+
+Functionality Details:
+
+>AccountHolder:
+ >withdrawCash(): Reads withdrawal amount, checks balance, and performs withdrawal if possible.
+ >depositCash(): Reads deposit amount and updates account balance.
+ >checkBalance(): Displays account balance.
+ >openAccount(): Reads user details and opens an account.
+
+>BankApplication:
+ >main(): Displays menu, handles user choices, and interacts with AccountHolder.
+
+Data Models:
+
+ >AccountHolder class attributes: balance, withdrawnAmount, depositAmount.
+ >User data collected during account opening: name, dob, phoneNO.
+
+Code Structure:
+
+ >Two classes: AccountHolder and BankApplication.
+ >Proper encapsulation and modularity, separating concerns.

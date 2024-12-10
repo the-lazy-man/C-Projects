@@ -1,0 +1,76 @@
+Detailed Project Report (DPR):
+
+1.Introduction:
+
+ >Title: Banking Application
+ >Purpose: Create a console-based banking application to facilitate various banking operations.
+ >Objective: To provide users with a simple and convenient way to manage their bank accounts.
+
+2.Scope:
+
+ >The project includes functionalities such as opening accounts, depositing cash, withdrawing cash, and checking balances.
+ >Excludes advanced features like interest calculations, transactions history, and multi-account support.
+
+3.Features:
+
+Open Account:
+ >Collects user's full name, date of birth, and phone number.
+ >Displays a success message after account creation.
+
+Deposit Cash:
+ >Takes deposit amount as input and updates account balance.
+ >Notifies the user of the successful deposit.
+
+Withdraw Cash:
+ >Prompts user for withdrawal amount and validates against account balance.
+ >Completes withdrawal if sufficient funds are available.
+
+Check Balance:
+ >Displays the current account balance.
+
+Exit:
+ >Provides an option for users to exit the application.
+
+4.Technology Stack:
+
+Java programming language
+Scanner class for input
+Object-oriented design principles
+
+5.Architecture:
+
+ >Users interact with the BankApplication through a console interface.
+ >The BankApplication manages user input and menu display.
+ >The AccountHolder performs account-related actions.
+ >Data flow: User input -> BankApplication -> AccountHolder -> Output
+
+6.User Flow:
+
+ >User launches the application.
+ >User selects from menu options: open account, deposit cash, withdraw cash, check balance, or exit.
+ >The application executes the chosen action. 
+ >Results are displayed to the user.
+ >User can continue performing actions or exit.
+
+7.Challenges Faced:
+
+ >Ensuring proper input validation for withdrawal and deposit.
+ >Handling potential division-by-zero when checking the balance.
+
+8.Testing:
+
+ >Conducted manual testing for each feature.
+ >Tested various scenarios, including valid and invalid inputs.
+ >Ensured the application behaved as expected.
+
+9.Future Enhancements:
+
+ >Implementing interest calculations and transactions history.
+ >Enhancing user authentication and security.
+ >Providing multi-account support for users.
+
+10.Conclusion:
+
+ >Successfully created a console-based banking application with core functionalities.
+ >Gained valuable experience in Java programming and user interface design.
+ >Identified areas for further improvement and expansion of features.

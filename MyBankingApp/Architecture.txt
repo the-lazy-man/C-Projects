@@ -1,0 +1,26 @@
+Architecture:
+
+System Overview:
+
+ >Users interact with the BankApplication through a console interface.
+ >The BankApplication delegates tasks to the AccountHolder.
+
+Interaction Flow:
+
+ 1.User launches the application.
+ 2.BankApplication displays menu options.
+ 3.User selects an option.
+ 4.BankApplication communicates with the AccountHolder to perform the chosen action.
+ 5.Results are displayed to the user.
+
+Components:
+
+ >User Interface: Console-based menu system.
+ >BankApplication: Manages user interaction and menu display.
+ >AccountHolder: Performs account-related actions.
+
+Data Flow:
+
+ >User input and menu choices are captured by the BankApplication.
+ >The BankApplication communicates with the AccountHolder to execute actions.
+ >Results are displayed back to the user.

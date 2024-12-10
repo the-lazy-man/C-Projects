@@ -23,6 +23,6 @@ User Flow:
 
 Technology Stack:
 
- >Java programming language
+ >C++ programming language
  >Scanner class for input
  >Object-oriented design principles
